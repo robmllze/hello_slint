@@ -1,0 +1,22 @@
+import { Button } from "std-widgets.slint";
+
+export component App inherits Window {
+    in-out property <string> greeting: "Hello, Slint!";
+    in-out property <int> counter: 0;
+    callback button-pressed();
+
+    VerticalLayout {
+        padding: 20px;
+        spacing: 10px;
+        Text {
+            text: greeting;
+        }
+
+        Button {
+            text: "Click me (Pressed \{counter} times)";
+            clicked => {
+                button-pressed()
+            }
+        }
+    }
+}
